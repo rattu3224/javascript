@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #000;
+  background-color: #6da51f;
+  /* background-color: #60b347; */
+}
+p{
+    font-size: 15px;
+    
+}
+
+
+.btn {
+  border: none;
+  border-radius: 50px;
+  background-color: #eee;
+  color: #222;
+  font-size: 2rem;
+  font-family: 'serif';
+  padding: 2rem 3rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover {
+  background-color: #ccc;
+}
+
+/**MODAL CSS***/
+.modal {
+    background: #fff;
+    width: 50%;
+    position: absolute;
+    z-index: 1000;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    border-radius: 2px;
+    top:50%;
+    left:25%;
+}
+
+.modal h2,h3,p
+{
+    color:#000;
+    padding:5px;
+}
+.close {
+    position: absolute;
+    display: flex;
+    right: 25px;
+    font-size: 12px;
+}
+.modal-content {
+    padding-top: 20px;
+}
+.overlay {
+  position: fixed;
+  background-color: #eeeeee4d;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  display: flex;
+  top: 0;
+  /* right: 0; */
+  /* left: 0; */
+}
+.hidden
+{
+  display: none;
+}
+
