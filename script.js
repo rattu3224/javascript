@@ -30,3 +30,15 @@ for(let i = 0;i<btnopenmodal.length;i++)
 }
 
 btnclose.addEventListener('click',closeModal);
+
+/****
+ * 
+ * keyboard event handler
+ * 
+ */
+document.addEventListener('keydown',function(event){
+    if(event.key == 'Escape')
+    {
+        closeModal();
+    }
+})
