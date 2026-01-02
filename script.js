@@ -5,8 +5,21 @@ const overlay = document.querySelector('.overlay');
 const btnclose = document.querySelector('.btnclose');
 const btnopenmodal = document.querySelectorAll('.btnopenmodal');
 
-console.log(btnopenmodal);
+// console.log(btnopenmodal);
+/***
+ * 
+ * close modal
+ * 
+ */
+const closeModal = function(){
+    modal.classList.add('hidden');
+};
 
+/****
+ * 
+ * reading modal
+ * 
+ */
 for(let i = 0;i<btnopenmodal.length;i++)
 {
     console.log(btnopenmodal[i].textContent);
@@ -16,6 +29,4 @@ for(let i = 0;i<btnopenmodal.length;i++)
     })
 }
 
-btnclose.addEventListener('click',function(){
-    modal.classList.add('hidden');
-})
+btnclose.addEventListener('click',closeModal);
