@@ -10,4 +10,12 @@ console.log(btnopenmodal);
 for(let i = 0;i<btnopenmodal.length;i++)
 {
     console.log(btnopenmodal[i].textContent);
+    btnopenmodal[i].addEventListener('click',function(){
+        modal.querySelector('h2').textContent = btnopenmodal[i].textContent;
+        modal.classList.remove('hidden');
+    })
 }
+
+btnclose.addEventListener('click',function(){
+    modal.classList.add('hidden');
+})
