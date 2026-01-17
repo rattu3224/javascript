@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../My Space One/var/www/staff.blu-maritime.com"
+		},
+		{
+			"path": "../../../../../My Space One/var/www/client.blu-maritime.com"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "javascript"
+	}
+}
