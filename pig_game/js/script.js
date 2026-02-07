@@ -8,6 +8,7 @@ let score = {'player1':0,'player2':0};
 let player = document.querySelectorAll('.player');
 let current_player = document.querySelector('#current_user').value;
 let dice_score = 0;
+let isplaying = true;
 const action_roll_dice = ()=>{
     const i = Math.floor(Math.random()*num_arr.length);
     let dice = 'dice-'+num_arr[i]+'.png';
@@ -28,6 +29,7 @@ const switch_player =(player)=>
     let remove_active = (player == 1)?0:1;
     let tobe_activePlayer= document.querySelector('.player-'+player+'-panel').classList;
     let cureent_activePlayer = document.querySelector('.player-'+remove_active+'-panel').classList;
+    isplaying = true;
     cureent_activePlayer.remove('active');
     tobe_activePlayer.add('active');
     document.querySelector('#current_user').value = player;
@@ -35,9 +37,12 @@ const switch_player =(player)=>
 }
 
 const hold_score = ()=>{
-    let crnt_player = document.querySelector('#current_user').value;
-    
-    // console.log
+    if(isplaying == false)
+    {
+        return;
+    }
+    let crnt_player = parseInt(document.querySelector('#current_user').value);
+    let otherplayer = (crnt_player == 0)?1:0;
     let crnt_score = 0;
     if(crnt_player == 1)
     {
@@ -50,9 +55,14 @@ const hold_score = ()=>{
         crnt_score = parseInt(plyr_score) +dice_score;
         score.player1 = crnt_score;
     }
-    console.log({score})
-    console.log({crnt_score})
     document.querySelector(`#score-${crnt_player}`).textContent = crnt_score;
+    if(crnt_score >= 20)
+    {
+        document.querySelector(`.player-${crnt_player}-panel`).classList.add('winner')
+    }
+    document.querySelector(`.player-${crnt_player}-panel`).classList.remove('active')
+    isplaying = false;
+    switch_player(otherplayer);
 
         
 }
@@ -64,16 +74,16 @@ const hold_score = ()=>{
 */
 const resetgame = () =>{
     
-    if(score.player1 >= 100)
+    if(score.player1 >= 20)
     {
         document.querySelector(`.player-0-panel`).addClass('winner')
     }
-    if(score.player2 >= 100)
+    if(score.player2 >= 20)
     {
         document.querySelector(`player-1-panel`).addClass('winner')
     }
-    document.querySelectorAll('.player-current-score').textContent = 0;
-    document.querySelectorAll('.player-score').textContent = 0;
+    document.querySelector('.player-current-score').textContent = 0;
+    document.querySelector('.player-score').textContent = 0;
 }
 
 roll_dice.addEventListener('click',action_roll_dice);
