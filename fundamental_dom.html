@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <div class="base-body">
+            <h1>Guess my number</h1>
+            <input name="inp_digit" id="inp_digit" class="inp-number" value="">
+            <button name="click" id="click" onclick="getnumber();">click me!</button>
+
+        </div>
+        
+    </body>
+    <footer>
+        <script>
+            function getnumber()
+            {
+                let inputval = document.querySelector('#inp_digit').value;
+                let bodydetail = document.querySelector('.base-body').css('background','green');
+                // alert(inputval)
+
+            }
+            
+        </script>
+    </footer>
+</html>
