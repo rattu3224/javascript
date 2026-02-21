@@ -25,7 +25,7 @@ const restaurent = {
     categories:['Italian','Indian','Chinese'],
     starter:['Salad','Soup','Fries'],
     mainCourse:['Pizza','Burger','Thali','Rajma','Paneer Tikka'],
-    openingHours:openingHours,
+    openingHours:hours,
     // ES6 object literals
     hours,
     // es6 new version
@@ -57,3 +57,35 @@ const restaurent = {
 
 // {} object literal
 // 
+if(restaurent.hours.mon && restaurent.hours.mon.open.mon) console.log((restaurent.hours.mon.open));
+
+// opetional chaining
+console.log(restaurent.hours.mon?.open);
+
+// multiple chaining
+console.log(restaurent.hours?.mon?.open);
+
+const days =['mon','tues','wed','thurs','fri','sat','sun'];
+
+for(const day of days)
+{
+    // const open = restaurent.hours[day]?.open || 'closed';
+    // solution for null values 
+    const open = restaurent.hours[day]?.open ?? 'closed';
+    console.log(`On ${day}, we open at ${open}`)
+}
+// calling methods to check if method exists
+
+console.log(restaurent.order?.(0,1)??'Method does not exits')
+console.log(restaurent.orderRisotto?.(0,1)??'Method does not exits')
+
+// Array
+
+const users = [
+    {name : 'Jonas',
+    email :'hello@jonas.com',
+    }
+]
+console.log(users[0]?.name ?? 'user array empty')
+
+console.log(users[1]?? 'no more users')
