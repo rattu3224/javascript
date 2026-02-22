@@ -72,4 +72,69 @@ for (const[key,val] of Object.entries(arr))
 
 console.log(Object.entries(arr));
 
-console.log('hello');
+
+//-------------for of loop-------------------------
+const restaurent = {
+    name:'sip n dine',
+    location:'SCO 11, sector 7, chandigarh',
+    categories:['Italian','Indian','Chinese'],
+    starter:['Salad','Soup','Fries'],
+    mainCourse:['Pizza','Burger','Thali','Rajma','Paneer Tikka'],
+    openingHours:{
+        thu:{
+            open:12,
+            close:22,
+        },
+        fri:
+        {
+            open:11,
+            close:23,
+        },
+        sat:
+        {
+            open:0,
+            close:24,
+        }
+    },
+    order : function(starterIndex,mainCourseIndex)
+    {
+        return [this.starter[starterIndex],this.mainCourse[mainCourseIndex]]
+    },
+    // orderdelivery:function(obj)
+    orderdelivery:function({starterIndex=1,mainCourseIndex=2,address='sadfasd',time=20}) // this also an object not single parameters
+    {
+        console.log(`Order recieved!! ${this.starter[starterIndex]} and ${this.mainCourse[mainCourseIndex]} that will be delivered to address ${address} at ${time}`);
+    },
+    // spread operator
+    orderPasta :function(ing1,ing2,ing3)
+    {
+        console.log(`Here is your delicous pasta with ${ing1},${ing2} and ${ing3}`)
+    },
+    orderPizza:function(mainingredient,...otheringrediants)
+    {
+        console.log(mainingredient);
+        console.log(otheringrediants);
+    }
+};
+const menu = [...restaurent.mainCourse,...restaurent.starter];
+
+// for-- of 
+// 
+for(const item of menu) console.log(item)
+
+// what is we need index
+// .enteries split into 2-d array as index and value
+
+for(const item of menu.entries()){
+    console.log({item})
+    // console.log(`${item[0]+1}: ${item[1]}`)
+}
+
+// desctructing assignment assingning variable to key/index
+// or value
+
+for(const [i,ej] of menu.entries()){
+    console.log(`Menu item no:${i+1}: ${ej}`)
+}
+
+// console.log([...menu.entries()])
