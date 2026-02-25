@@ -109,4 +109,5 @@ const checkBaggage_second = function(items)
     console.log(`You are ${status}`)
 }
 checkBaggage_second('I have a laptop, some food and a pocket Knife');
+console.log('asdfads')
 
