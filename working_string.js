@@ -109,5 +109,80 @@ const checkBaggage_second = function(items)
     console.log(`You are ${status}`)
 }
 checkBaggage_second('I have a laptop, some food and a pocket Knife');
-console.log('asdfads')
+
+// string split methods
+console.log('a+very+nice+string'.split('+'));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+// join method
+
+const newname = ['Mr.',firstName,lastName.toUpperCase()].join(' ');
+console.log(newname);
+
+const capitalisename = function(name)
+{
+    const names = name.split(' ');
+    const namesupper = [];
+    for(const n of names)
+    {
+        namesupper.push(n[0].toUpperCase()+n.slice(1));
+    }
+    console.log(namesupper.join(' '))
+}
+
+// other way
+const capitalisename_other = function(name)
+{
+    const names = name.split(' ');
+    console.log({names})
+    const namesupper = [];
+    for(const n of names)
+    {
+        namesupper.push(n.replace(n[0],n[0].toUpperCase()));
+    }
+    console.log(namesupper.join(' '))
+}
+
+const passengerName = 'jessica ann smith davis';
+
+capitalisename('harpreet rattu')
+capitalisename_other('harpreet rattu')
+
+
+// padding 
+// adding number of characters until it reaches desired string
+const message = 'Go to gate 22';
+console.log(message.padStart(20,'+').padEnd(35,'+'))
+console.log('Jonas'.padStart(25,'+'))
+
+
+// masking
+// if we concat number with string it will become string
+const maskCrediCard = function(creditcard)
+{
+    const str = creditcard+'';// string convert
+    const last = str.slice(-4);
+    return last.padStart(str.length,'X');
+}
+
+console.log(maskCrediCard(12345687890098765));
+
+// repeat
+// repeating same string multiple times
+
+const message2 = 'Bad weather... all Departures Delayed ';
+
+console.log(message2.repeat(5))
+
+const planesInLine = function(n)
+{
+    console.log(`There are ${n} planes in line.${'✈️'.repeat(n)}`)
+}
+
+planesInLine(3)
+planesInLine(12)
+planesInLine(5)
+
+
 
