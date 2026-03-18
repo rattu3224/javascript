@@ -13,7 +13,6 @@ const greeterHey = greet('hey');// value is inner function
 greeterHey('Jonas')
 greeterHey('Harpreet'); // works because of clousures
 
-
 // other way
 greet('Hello')('James');
 
@@ -28,7 +27,17 @@ const newGreetSay = newGreet('Hey!!');
 newGreetSay('Thomas');
 newGreet('Hii!!')('Chotee')
 
+// const newGreet2 = (greet) => {
+//     return (name) => {}
+// }
 
+// const calVat = (rate) => {
+//     return (value) => {
+//         console.log(`${rate} ${value}`)
+//     }
+// }
+
+// const vatval = calVat('One')('Onnee');
 // short form of arrrow function
 const greetThird = greeting => name => console.log(`${greeting} ${name}`)
 
@@ -89,4 +98,48 @@ const swiss = {
     booking:[]
 }
 
-book.call(swiss,...flightData)
+book.call(swiss,...flightData);
+// bind method
+// allows to set manually set this keyword
+// returns a function
+//book.call(eurowings,23,'Sarah Williams')
+const bookEW = book.bind(eurowings,23);
+const bookLH = book.bind(lufthansa);
+bookEW('Jyoti');
+bookLH(112,'jonas');
+
+
+// with event listener
+lufthansa.planes = 300;
+lufthansa.buyPlane = function()
+{
+    this.planes++;
+    console.log(this.planes)
+}
+document.querySelector('.buy').addEventListener('click',lufthansa.buyPlane);
+// defining this key word itself in the above statement
+// when we call lufthansa.buyPlane function this points to the button not to the lufthansa
+// so SOLUTION bind
+
+document.querySelector('.buy').addEventListener('click',lufthansa.buyPlane.bind(lufthansa));
+// partial application :: preset values
+//
+const addTax = (rate,value) => value + value * rate;
+
+console.log(addTax(0.1,500));
+
+// one tax all the time
+const addVAT =  addTax.bind(null,0.23); // = addVAT = value => value + value * 0.23
+console.log(addVAT(120));
+console.log(addVAT(200));
+
+//wr
+const addVAT2 = (rate) => {
+    return (value) => { // return new function
+        console.log(value + value * rate)
+    }
+}
+
+const vat2 = addVAT2(0.23);
+vat2(231)
+// console.log(vat2)
